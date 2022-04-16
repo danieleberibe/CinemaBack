@@ -88,5 +88,26 @@ public class UsersController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	@DeleteMapping("/users/{id}")
+	public ResponseEntity<HttpStatus> deleteById(@PathVariable("id") long id){
+		try{
+			userRepository.deleteById(id);
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@DeleteMapping("/users")
+	public ResponseEntity<HttpStatus> deleteAllUsers(){
+		try{
+			userRepository.deleteAll();
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+
    
 }
