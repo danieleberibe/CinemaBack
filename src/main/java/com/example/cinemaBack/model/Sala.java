@@ -12,7 +12,7 @@ public class Sala {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "postitotali")
+    @Column(name = "postitot")
     private int postiTot;
 
     @Column(name = "numerosala")
@@ -20,6 +20,8 @@ public class Sala {
 
     @Column(name = "attivo")
     private int attivo;
+
+    public Sala(){}
 
     public Sala(long id, int postiTot, int numSala, int attivo) {
         this.id = id;
@@ -62,6 +64,9 @@ public class Sala {
     }
     
 
-    
+    @Override
+	public String toString() {
+		return "Tutorial [id=" + id + ", postitot=" + postiTot + ", numSala=" + numSala + ", attivo=" + attivo + " ]";
+	}
     
 }
